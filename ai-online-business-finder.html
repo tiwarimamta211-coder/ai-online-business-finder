@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Online Business Finder | IncomeAIHub</title>
+<meta name="description" content="Apki skills, budget aur time ke hisaab se AI se best online business ideas nikalwayein. Sirf ₹149 mein lifetime unlock.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<style>
+:root{
+  --bg:#0a0a0f;
+  --bg-elev:#12121a;
+  --bg-card:#161620;
+  --border:#2a2a38;
+  --gold:#d4af6a;
+  --gold-soft:rgba(212,175,106,0.12);
+  --emerald:#2ecc9c;
+  --emerald-soft:rgba(46,204,156,0.12);
+  --violet:#8b7ff0;
+  --violet-soft:rgba(139,127,240,0.12);
+  --text:#f0f0f5;
+  --text-dim:#9a9aab;
+  --text-faint:#5f5f70;
+  --danger:#e0645a;
+  --radius:16px;
+  --shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139,127,240,0.15), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 20%, rgba(212,175,106,0.08), transparent),
+    var(--bg);
+  color:var(--text);
+  font-family:'DM Sans',sans-serif;
+  min-height:100vh;
+  line-height:1.6;
+}
+h1,h2,h3,.brand{font-family:'Syne',sans-serif;}
+.mono{font-family:'DM Mono',monospace;}
+.container{max-width:1080px;margin:0 auto;padding:0 20px;}
+
+/* ---------- HEADER ---------- */
+header{
+  border-bottom:1px solid var(--border);
+  padding:18px 0;
+  position:sticky;top:0;z-index:50;
+  background:rgba(10,10,15,0.85);
+  backdrop-filter:blur(12px);
+}
+.header-inner{display:flex;justify-content:space-between;align-items:center;}
+.brand{font-size:20px;font-weight:800;letter-spacing:-0.5px;
+  background:linear-gradient(135deg,var(--gold),var(--emerald));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.brand span{color:var(--text-dim);font-family:'DM Sans',sans-serif;font-weight:500;font-size:12px;display:block;letter-spacing:1px;}
+.header-actions{display:flex;gap:10px;align-items:center;}
+.btn-guide{
+  background:var(--bg-card);border:1px solid var(--border);color:var(--text-dim);
+  padding:9px 16px;border-radius:100px;font-size:13px;cursor:pointer;
+  display:flex;align-items:center;gap:6px;transition:.2s;font-family:'DM Sans',sans-serif;
+}
+.btn-guide:hover{border-color:var(--gold);color:var(--gold);}
+.unlock-pill{
+  font-size:12px;padding:6px 12px;border-radius:100px;font-weight:600;
+  background:var(--emerald-soft);color:var(--emerald);border:1px solid rgba(46,204,156,0.3);
+  display:none;align-items:center;gap:5px;
+}
+.unlock-pill.show{display:flex;}
+
+/* ---------- HERO ---------- */
+.hero{padding:64px 0 40px;text-align:center;}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--violet-soft);color:var(--violet);
+  border:1px solid rgba(139,127,240,0.3);
+  padding:7px 16px;border-radius:100px;font-size:12.5px;font-weight:600;margin-bottom:22px;
+}
+.hero h1{font-size:clamp(30px,5vw,50px);font-weight:800;letter-spacing:-1.5px;line-height:1.12;margin-bottom:16px;}
+.hero h1 .grad{background:linear-gradient(135deg,var(--gold),var(--emerald) 60%,var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p{color:var(--text-dim);font-size:16px;max-width:600px;margin:0 auto;}
+.hero p b{color:var(--text);}
+
+/* ---------- AD SLOT ---------- */
+.ad-slot{
+  max-width:1080px;margin:24px auto;padding:0 20px;
+}
+.ad-slot .ad-box{
+  background:var(--bg-card);border:1px dashed var(--border);border-radius:12px;
+  min-height:90px;display:flex;align-items:center;justify-content:center;
+  color:var(--text-faint);font-size:11px;letter-spacing:1px;text-transform:uppercase;
+}
+
+/* ---------- FORM CARD ---------- */
+.card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:32px;margin-bottom:28px;
+}
+.card h2{font-size:20px;font-weight:700;margin-bottom:4px;}
+.card .sub{color:var(--text-dim);font-size:13.5px;margin-bottom:24px;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.field{display:flex;flex-direction:column;gap:8px;}
+.field.full{grid-column:1/-1;}
+.field label{font-size:13px;font-weight:600;color:var(--text-dim);}
+.field label .req{color:var(--gold);}
+select,input[type=text],textarea{
+  background:var(--bg-elev);border:1px solid var(--border);color:var(--text);
+  padding:12px 14px;border-radius:10px;font-size:14.5px;font-family:'DM Sans',sans-serif;
+  outline:none;transition:.2s;width:100%;
+}
+select:focus,input:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-soft);}
+textarea{resize:vertical;min-height:70px;}
+.chip-group{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{
+  padding:9px 15px;border-radius:100px;border:1px solid var(--border);background:var(--bg-elev);
+  color:var(--text-dim);font-size:13px;cursor:pointer;transition:.15s;user-select:none;
+}
+.chip.active{background:var(--gold-soft);border-color:var(--gold);color:var(--gold);font-weight:600;}
+.chip:hover{border-color:var(--gold);}
+
+.btn-primary{
+  margin-top:26px;width:100%;
+  background:linear-gradient(135deg,var(--gold),#c99a4a);
+  color:#141118;border:none;padding:16px;border-radius:12px;
+  font-size:15.5px;font-weight:700;cursor:pointer;letter-spacing:.3px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:.2s;font-family:'DM Sans',sans-serif;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(212,175,106,0.25);}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.btn-primary .spinner{width:16px;height:16px;border:2px solid rgba(20,17,24,0.3);border-top-color:#141118;border-radius:50%;animation:spin .7s linear infinite;display:none;}
+.btn-primary.loading .spinner{display:inline-block;}
+.btn-primary.loading .btxt{display:none;}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.free-note{text-align:center;font-size:12.5px;color:var(--text-faint);margin-top:12px;}
+
+/* ---------- RESULTS ---------- */
+#results{display:none;}
+#results.show{display:block;}
+.results-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:10px;}
+.results-head h2{font-size:20px;}
+.results-head .count{color:var(--text-dim);font-size:13px;}
+.idea-grid{display:grid;grid-template-columns:1fr;gap:16px;}
+.idea-card{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:24px;
+  position:relative;overflow:hidden;transition:.2s;
+}
+.idea-card:hover{border-color:var(--gold);}
+.idea-card::before{
+  content:'';position:absolute;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(180deg,var(--gold),var(--emerald));
+}
+.idea-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px;}
+.idea-rank{
+  width:30px;height:30px;border-radius:8px;background:var(--gold-soft);color:var(--gold);
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0;
+}
+.idea-title{font-size:17px;font-weight:700;flex:1;}
+.match-score{
+  background:var(--emerald-soft);color:var(--emerald);font-size:12px;font-weight:700;
+  padding:5px 11px;border-radius:100px;white-space:nowrap;
+}
+.idea-desc{color:var(--text-dim);font-size:14px;margin-bottom:16px;}
+.idea-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-bottom:16px;}
+.stat-box{background:var(--bg-elev);border:1px solid var(--border);border-radius:10px;padding:10px 12px;}
+.stat-box .lbl{font-size:10.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
+.stat-box .val{font-size:14.5px;font-weight:700;font-family:'DM Mono',monospace;}
+.stat-box.income .val{color:var(--emerald);}
+.stat-box.difficulty .val{color:var(--gold);}
+.steps{background:var(--bg-elev);border-radius:10px;padding:14px 16px;}
+.steps .lbl{font-size:11.5px;font-weight:700;color:var(--violet);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px;}
+.steps ol{padding-left:18px;}
+.steps li{font-size:13.5px;color:var(--text-dim);margin-bottom:5px;}
+.steps li::marker{color:var(--violet);font-weight:700;}
+
+/* ---------- BLURRED LOCKED CARDS ---------- */
+.locked-wrap{position:relative;margin-top:16px;}
+.locked-wrap .idea-card{filter:blur(6px);pointer-events:none;user-select:none;}
+.locked-overlay{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;background:rgba(10,10,15,0.55);border-radius:14px;text-align:center;padding:20px;
+}
+.locked-overlay .lock-ic{font-size:30px;}
+.locked-overlay p{font-size:14px;color:var(--text);max-width:280px;}
+.locked-overlay p b{color:var(--gold);}
+
+/* ---------- PAYWALL MODAL ---------- */
+.modal-backdrop{
+  display:none;position:fixed;inset:0;background:rgba(5,5,8,0.75);backdrop-filter:blur(6px);
+  z-index:200;align-items:center;justify-content:center;padding:20px;
+}
+.modal-backdrop.show{display:flex;}
+.modal{
+  background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
+  max-width:460px;width:100%;padding:32px;box-shadow:var(--shadow);
+  max-height:88vh;overflow-y:auto;position:relative;
+}
+.modal-close{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--text-faint);font-size:22px;cursor:pointer;line-height:1;}
+.modal-close:hover{color:var(--text);}
+.modal-icon{font-size:34px;text-align:center;margin-bottom:6px;}
+.modal h3{text-align:center;font-size:22px;margin-bottom:8px;}
+.modal .price-tag{text-align:center;margin:18px 0;}
+.modal .price-tag .price{font-family:'Syne',sans-serif;font-size:40px;font-weight:800;color:var(--gold);}
+.modal .price-tag .strike{color:var(--text-faint);text-decoration:line-through;font-size:15px;margin-right:8px;}
+.modal .price-tag .note{color:var(--text-dim);font-size:12.5px;margin-top:4px;}
+.perk-list{list-style:none;margin:20px 0;}
+.perk-list li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-dim);margin-bottom:11px;}
+.perk-list li .tick{color:var(--emerald);font-weight:700;flex-shrink:0;}
+.modal .btn-primary{margin-top:6px;}
+.modal-secure{text-align:center;font-size:11.5px;color:var(--text-faint);margin-top:14px;}
+
+/* ---------- HINDI GUIDE MODAL ---------- */
+.guide-body h4{font-size:15px;color:var(--gold);margin:18px 0 8px;}
+.guide-body h4:first-child{margin-top:0;}
+.guide-body p,.guide-body li{font-size:13.5px;color:var(--text-dim);}
+.guide-body ol,.guide-body ul{padding-left:20px;margin-top:6px;}
+.guide-body li{margin-bottom:6px;}
+
+/* ---------- DEMO BANNER ---------- */
+.demo-banner{
+  background:rgba(224,100,90,0.1);border:1px solid rgba(224,100,90,0.35);color:#f0a099;
+  border-radius:10px;padding:11px 16px;font-size:12.5px;margin-bottom:22px;display:none;
+  align-items:center;gap:8px;
+}
+.demo-banner.show{display:flex;}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--border);margin-top:60px;padding:30px 0;text-align:center;color:var(--text-faint);font-size:12.5px;}
+footer .fbrand{color:var(--text-dim);font-weight:600;}
+
+/* ---------- TOAST ---------- */
+.toast{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);
+  background:var(--bg-card);border:1px solid var(--border);color:var(--text);
+  padding:13px 22px;border-radius:100px;font-size:13.5px;box-shadow:var(--shadow);
+  z-index:300;opacity:0;transition:.3s;pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.error{border-color:var(--danger);color:#f0a099;}
+.toast.success{border-color:var(--emerald);color:var(--emerald);}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:640px){
+  .form-grid{grid-template-columns:1fr;}
+  .card{padding:22px 18px;}
+  .hero{padding:44px 0 28px;}
+  .header-actions{gap:6px;}
+  .btn-guide span.gtxt{display:none;}
+  .idea-stats{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="brand">AI Online Business Finder<span>by IncomeAIHub · M.Dev</span></div>
+    <div class="header-actions">
+      <span class="unlock-pill" id="unlockPill">🔓 Unlocked</span>
+      <button class="btn-guide" id="guideBtn">📘 <span class="gtxt">Hindi Guide</span></button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">✨ AI-Powered · Personalized Results</div>
+    <h1>Apke liye <span class="grad">best online business</span> AI se dhoondhein</h1>
+    <p>Apni skills, budget aur available time batayein — AI turant <b>5 personalized online business ideas</b> deta hai, poori step-by-step plan ke saath, Hinglish mein.</p>
+  </div>
+</section>
+
+<div class="ad-slot">
+  <div class="ad-box">Advertisement Slot — 728x90 / Responsive (AdSense)</div>
+</div>
+
+<main class="container">
+
+  <div class="demo-banner" id="demoBanner">
+    ⚠️ <span><b>DEMO_MODE active</b> — Supabase/Razorpay credentials configure nahi hain. Sample AI output dikhaya ja raha hai. Real deployment ke liye CONFIG section mein apne keys daalein.</span>
+  </div>
+
+  <!-- FORM CARD -->
+  <div class="card">
+    <h2>🎯 Apni Details Bharein</h2>
+    <p class="sub">Jitna accurate info denge, AI utna hi better matched ideas dega.</p>
+
+    <form id="finderForm">
+      <div class="form-grid">
+        <div class="field full">
+          <label>Aapki Skills / Interests <span class="req">*</span></label>
+          <input type="text" id="skills" placeholder="e.g. Writing, Excel, Cooking, Photography, Teaching" required>
+        </div>
+
+        <div class="field">
+          <label>Starting Budget <span class="req">*</span></label>
+          <select id="budget" required>
+            <option value="">Select budget</option>
+            <option value="₹0 (No investment)">₹0 — Koi investment nahi</option>
+            <option value="Under ₹5,000">₹5,000 se kam</option>
+            <option value="₹5,000 - ₹20,000">₹5,000 – ₹20,000</option>
+            <option value="₹20,000 - ₹50,000">₹20,000 – ₹50,000</option>
+            <option value="Above ₹50,000">₹50,000 se zyada</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Daily Time Available <span class="req">*</span></label>
+          <select id="time" required>
+            <option value="">Select time</option>
+            <option value="1-2 hours/day">1–2 ghante/din</option>
+            <option value="3-4 hours/day">3–4 ghante/din</option>
+            <option value="5+ hours/day (Full time)">5+ ghante/din (Full time)</option>
+            <option value="Weekends only">Sirf weekends</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Experience Level</label>
+          <div class="chip-group" id="expChips">
+            <div class="chip active" data-val="Complete Beginner">Beginner</div>
+            <div class="chip" data-val="Some Experience">Kuch Experience</div>
+            <div class="chip" data-val="Experienced Professional">Experienced</div>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Preferred Business Type</label>
+          <div class="chip-group" id="typeChips">
+            <div class="chip active" data-val="Any">Koi Bhi</div>
+            <div class="chip" data-val="Service-based">Service-based</div>
+            <div class="chip" data-val="Product-based">Product-based</div>
+            <div class="chip" data-val="Digital/Content">Digital / Content</div>
+          </div>
+        </div>
+
+        <div class="field full">
+          <label>Additional Context (optional)</label>
+          <textarea id="context" placeholder="e.g. Main Raipur mein rehta hoon, CA hoon, ya koi specific goal hai to yahan likhein"></textarea>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-primary" id="submitBtn">
+        <span class="spinner"></span>
+        <span class="btxt">🔍 Find My Business Ideas</span>
+      </button>
+      <p class="free-note" id="freeNote">🎁 Pehli search FREE hai — result dekhne ke baad decide karein.</p>
+    </form>
+  </div>
+
+  <!-- RESULTS -->
+  <div id="results">
+    <div class="results-head">
+      <h2>💡 Aapke liye AI ne ye ideas nikale hain</h2>
+      <span class="count" id="resultCount"></span>
+    </div>
+    <div class="idea-grid" id="ideaGrid"></div>
+  </div>
+
+</main>
+
+<div class="ad-slot">
+  <div class="ad-box">Advertisement Slot — 728x90 / Responsive (AdSense)</div>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="fbrand">IncomeAIHub</p>
+    <p>M.Dev · Raipur, Chhattisgarh · &copy; 2026 · Made for Indian Freelancers &amp; MSMEs</p>
+  </div>
+</footer>
+
+<!-- PAYWALL MODAL -->
+<div class="modal-backdrop" id="paywallModal">
+  <div class="modal">
+    <button class="modal-close" id="closePaywall">&times;</button>
+    <div class="modal-icon">🔒</div>
+    <h3>Baaki 4 Ideas Unlock Karein</h3>
+    <p style="text-align:center;color:var(--text-dim);font-size:13.5px;">Aapki free search complete ho gayi hai. Poori report + lifetime access unlock karne ke liye ek chhota sa payment karein.</p>
+    <div class="price-tag">
+      <span><span class="strike">₹499</span><span class="price">₹149</span></span>
+      <div class="note">One-time payment · Lifetime unlock · No subscription</div>
+    </div>
+    <ul class="perk-list">
+      <li><span class="tick">✓</span> Unlimited AI business idea searches, hamesha ke liye</li>
+      <li><span class="tick">✓</span> Har idea ki full step-by-step launch plan</li>
+      <li><span class="tick">✓</span> Income potential aur difficulty rating</li>
+      <li><span class="tick">✓</span> Hinglish mein aasan explanation</li>
+      <li><span class="tick">✓</span> Future updates free mein</li>
+    </ul>
+    <button class="btn-primary" id="payBtn">
+      <span class="spinner"></span>
+      <span class="btxt">🔓 Pay ₹149 &amp; Unlock Lifetime</span>
+    </button>
+    <p class="modal-secure">🔒 Secured by Razorpay · UPI / Cards / Netbanking supported</p>
+  </div>
+</div>
+
+<!-- HINDI GUIDE MODAL -->
+<div class="modal-backdrop" id="guideModal">
+  <div class="modal">
+    <button class="modal-close" id="closeGuide">&times;</button>
+    <div class="modal-icon">📘</div>
+    <h3>Tool Kaise Use Karein</h3>
+    <div class="guide-body">
+      <h4>1. Ye tool kya karta hai?</h4>
+      <p>Ye AI tool aapki skills, budget aur available time ke hisaab se personalized online business ideas suggest karta hai — har idea ke saath launch steps aur income potential bhi milta hai.</p>
+
+      <h4>2. Kaise use karein?</h4>
+      <ol>
+        <li>Apni skills/interests likhein (jaise Writing, Cooking, Excel)</li>
+        <li>Budget aur daily time select karein</li>
+        <li>Experience level aur business type chunein</li>
+        <li>"Find My Business Ideas" par click karein</li>
+        <li>Pehla idea free mein milega, baaki 4 unlock karne ke liye ₹149 pay karein</li>
+      </ol>
+
+      <h4>3. Freelancing ke liye kaise use karein?</h4>
+      <ul>
+        <li>Isse khud ke liye business idea nikalne ke alawa, apne clients (jo confuse hain ki online kya start karein) ko bhi ye tool suggest kar sakte hain</li>
+        <li>Local CA firms ya business consultants ko is tool ka white-label version bech sakte hain</li>
+        <li>Apne Fiverr/Upwork gig mein "Free Business Idea Report" lead-magnet ke roop mein use karein</li>
+      </ul>
+
+      <h4>4. Payment safe hai?</h4>
+      <p>Haan, payment Razorpay ke through hota hai jo India ka trusted payment gateway hai. Ek baar pay karne ke baad, aapko lifetime access milta hai — dobara payment nahi karna padega.</p>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   CONFIG — Replace with real credentials before going live.
+   While these remain placeholders, DEMO_MODE auto-activates.
+========================================================= */
+const CONFIG = {
+  SUPABASE_URL: "https://YOUR_PROJECT.supabase.co",
+  SUPABASE_ANON_KEY: "YOUR_SUPABASE_ANON_KEY",
+  RAZORPAY_KEY_ID: "rzp_test_YOUR_KEY_ID",
+  UNLOCK_PRICE_PAISE: 14900, // ₹149
+  TOOL_ID: "ai-online-business-finder"
+};
+
+function isBackendConfigured(){
+  return !CONFIG.SUPABASE_URL.includes("YOUR_PROJECT") &&
+         !CONFIG.SUPABASE_ANON_KEY.includes("YOUR_SUPABASE") &&
+         !CONFIG.RAZORPAY_KEY_ID.includes("YOUR_KEY_ID");
+}
+const DEMO_MODE = !isBackendConfigured();
+
+/* ---------- Device ID (for unlock persistence) ---------- */
+function getDeviceId(){
+  let id = localStorage.getItem(CONFIG.TOOL_ID + "_device_id");
+  if(!id){
+    id = 'dev_' + Date.now() + '_' + Math.random().toString(36).slice(2,11);
+    localStorage.setItem(CONFIG.TOOL_ID + "_device_id", id);
+  }
+  return id;
+}
+const DEVICE_ID = getDeviceId();
+
+/* ---------- State ---------- */
+let isUnlocked = localStorage.getItem(CONFIG.TOOL_ID + "_unlocked") === "true";
+let freeSearchUsed = localStorage.getItem(CONFIG.TOOL_ID + "_free_used") === "true";
+let lastIdeas = [];
+
+/* ---------- Init ---------- */
+window.addEventListener("DOMContentLoaded", () => {
+  if(DEMO_MODE) document.getElementById("demoBanner").classList.add("show");
+  refreshUnlockUI();
+  checkUnlockStatus(); // async re-verify with backend if configured
+});
+
+function refreshUnlockUI(){
+  const pill = document.getElementById("unlockPill");
+  const freeNote = document.getElementById("freeNote");
+  if(isUnlocked){
+    pill.classList.add("show");
+    freeNote.textContent = "✅ Unlimited access unlocked — jitni chahe search karein.";
+  } else {
+    pill.classList.remove("show");
+    freeNote.textContent = freeSearchUsed
+      ? "🔒 Free search use ho chuki hai — baaki ideas unlock karne ke liye ₹149 pay karein."
+      : "🎁 Pehli search FREE hai — result dekhne ke baad decide karein.";
+  }
+}
+
+/* ---------- Backend: check-unlock ---------- */
+async function checkUnlockStatus(){
+  if(DEMO_MODE) return; // localStorage state is source of truth in demo mode
+  try{
+    const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/check-unlock`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+      },
+      body: JSON.stringify({ device_id: DEVICE_ID, tool_id: CONFIG.TOOL_ID })
+    });
+    const data = await res.json();
+    if(data && data.unlocked){
+      isUnlocked = true;
+      localStorage.setItem(CONFIG.TOOL_ID + "_unlocked", "true");
+      refreshUnlockUI();
+    }
+  }catch(e){
+    console.warn("check-unlock failed, continuing with local state:", e);
+  }
+}
+
+/* ---------- Chip selectors ---------- */
+function setupChips(groupId){
+  const group = document.getElementById(groupId);
+  group.addEventListener("click", (e)=>{
+    const chip = e.target.closest(".chip");
+    if(!chip) return;
+    [...group.children].forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active");
+  });
+}
+setupChips("expChips");
+setupChips("typeChips");
+function getActiveChip(groupId){
+  return document.querySelector(`#${groupId} .chip.active`).dataset.val;
+}
+
+/* ---------- Form submit ---------- */
+document.getElementById("finderForm").addEventListener("submit", async (e)=>{
+  e.preventDefault();
+
+  const skills = document.getElementById("skills").value.trim();
+  const budget = document.getElementById("budget").value;
+  const time = document.getElementById("time").value;
+  if(!skills || !budget || !time){
+    showToast("Kripya required fields bharein", "error");
+    return;
+  }
+
+  const payload = {
+    skills,
+    budget,
+    time,
+    experience: getActiveChip("expChips"),
+    businessType: getActiveChip("typeChips"),
+    context: document.getElementById("context").value.trim()
+  };
+
+  const btn = document.getElementById("submitBtn");
+  btn.classList.add("loading");
+  btn.disabled = true;
+
+  try{
+    const ideas = await generateBusinessIdeas(payload);
+    lastIdeas = ideas;
+    renderResults(ideas);
+    freeSearchUsed = true;
+    localStorage.setItem(CONFIG.TOOL_ID + "_free_used", "true");
+    refreshUnlockUI();
+  }catch(err){
+    console.error(err);
+    showToast("Kuch gadbad hui, dobara try karein", "error");
+  }finally{
+    btn.classList.remove("loading");
+    btn.disabled = false;
+  }
+});
+
+/* ---------- AI call (ai-proxy edge function) ---------- */
+async function generateBusinessIdeas(payload){
+  if(DEMO_MODE){
+    await new Promise(r=>setTimeout(r, 1400)); // simulate latency
+    return DEMO_IDEAS;
+  }
+
+  const prompt = `Tum ek expert Indian business consultant ho. Neeche di gayi user details ke basis par 5 personalized ONLINE business ideas suggest karo jo India mein realistically start ki ja sakti hain.
+
+User Details:
+- Skills/Interests: ${payload.skills}
+- Budget: ${payload.budget}
+- Available Time: ${payload.time}
+- Experience Level: ${payload.experience}
+- Preferred Business Type: ${payload.businessType}
+- Additional Context: ${payload.context || "N/A"}
+
+Har idea ke liye ye fields do, aur poora response Hinglish mein likho (thoda Hindi + English mix, jaise ek Indian consultant baat karta hai):
+- title (business idea ka naam)
+- matchScore (0-100, ye idea kitna match karta hai)
+- description (2 lines mein kya hai ye business)
+- incomeRange (e.g. "₹15,000 - ₹40,000/month")
+- startupCost (e.g. "₹2,000 - ₹5,000")
+- timeToLaunch (e.g. "1-2 weeks")
+- difficulty (Easy/Medium/Hard)
+- steps (array of 4 short actionable steps to start)
+
+STRICT: Sirf ek JSON array return karo, koi preamble, koi markdown backticks, koi extra text nahi. Format:
+[{"title":"","matchScore":0,"description":"","incomeRange":"","startupCost":"","timeToLaunch":"","difficulty":"","steps":["","","",""]}]`;
+
+  const res = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/ai-proxy`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+    },
+    body: JSON.stringify({
+      tool_id: CONFIG.TOOL_ID,
+      device_id: DEVICE_ID,
+      prompt
+    })
+  });
+
+  if(!res.ok) throw new Error("AI proxy request failed");
+  const data = await res.json();
+
+  let raw = data.text || data.content || data.result || "";
+  raw = raw.replace(/```json|```/g, "").trim();
+  const parsed = JSON.parse(raw);
+  return parsed;
+}
+
+/* ---------- Render results ---------- */
+function renderResults(ideas){
+  const grid = document.getElementById("ideaGrid");
+  const results = document.getElementById("results");
+  const count = document.getElementById("resultCount");
+  grid.innerHTML = "";
+
+  const visibleCount = isUnlocked ? ideas.length : 1;
+  count.textContent = isUnlocked ? `${ideas.length} ideas mile` : `1 of ${ideas.length} ideas dikh rahe hain`;
+
+  ideas.forEach((idea, i)=>{
+    if(i < visibleCount){
+      grid.appendChild(buildIdeaCard(idea, i+1));
+    }
+  });
+
+  if(!isUnlocked && ideas.length > visibleCount){
+    const wrap = document.createElement("div");
+    wrap.className = "locked-wrap";
+    wrap.appendChild(buildIdeaCard(ideas[visibleCount], visibleCount+1));
+    const overlay = document.createElement("div");
+    overlay.className = "locked-overlay";
+    overlay.innerHTML = `
+      <div class="lock-ic">🔒</div>
+      <p>Baaki <b>${ideas.length - visibleCount} ideas</b> lock hain. Sirf <b>₹149</b> mein lifetime unlock karein.</p>
+      <button class="btn-primary" style="width:auto;padding:12px 26px;" onclick="openPaywall()">Unlock Now</button>
+    `;
+    wrap.appendChild(overlay);
+    grid.appendChild(wrap);
+  }
+
+  results.classList.add("show");
+  results.scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+function buildIdeaCard(idea, rank){
+  const card = document.createElement("div");
+  card.className = "idea-card";
+  card.innerHTML = `
+    <div class="idea-top">
+      <div class="idea-rank">#${rank}</div>
+      <div class="idea-title">${escapeHtml(idea.title)}</div>
+      <div class="match-score">${idea.matchScore}% Match</div>
+    </div>
+    <div class="idea-desc">${escapeHtml(idea.description)}</div>
+    <div class="idea-stats">
+      <div class="stat-box income"><div class="lbl">Income</div><div class="val">${escapeHtml(idea.incomeRange)}</div></div>
+      <div class="stat-box"><div class="lbl">Startup Cost</div><div class="val">${escapeHtml(idea.startupCost)}</div></div>
+      <div class="stat-box"><div class="lbl">Launch Time</div><div class="val">${escapeHtml(idea.timeToLaunch)}</div></div>
+      <div class="stat-box difficulty"><div class="lbl">Difficulty</div><div class="val">${escapeHtml(idea.difficulty)}</div></div>
+    </div>
+    <div class="steps">
+      <div class="lbl">🚀 Kaise shuru karein</div>
+      <ol>${idea.steps.map(s=>`<li>${escapeHtml(s)}</li>`).join("")}</ol>
+    </div>
+  `;
+  return card;
+}
+
+function escapeHtml(str){
+  if(!str) return "";
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+/* ---------- Demo sample data ---------- */
+const DEMO_IDEAS = [
+  {
+    title:"Freelance Content Writing Service",
+    matchScore:92,
+    description:"Businesses aur blogs ke liye SEO articles aur website content likhkar income generate karein.",
+    incomeRange:"₹15,000 - ₹45,000/month",
+    startupCost:"₹0 - ₹1,000",
+    timeToLaunch:"3-5 days",
+    difficulty:"Easy",
+    steps:[
+      "Fiverr/Upwork par profile banayein 3 sample writing pieces ke saath",
+      "Apna niche choose karein (finance, health, tech, etc.)",
+      "LinkedIn par local businesses ko cold outreach karein",
+      "Pehle 3 clients ko discount rate par kaam karke reviews collect karein"
+    ]
+  },
+  {
+    title:"Instagram Reels Editing for Creators",
+    matchScore:85,
+    description:"Chhote content creators aur local brands ke reels/shorts edit karke recurring income banayein.",
+    incomeRange:"₹10,000 - ₹35,000/month",
+    startupCost:"₹0 (free tools jaise CapCut)",
+    timeToLaunch:"1 week",
+    difficulty:"Easy",
+    steps:[
+      "CapCut/InShot se 5 demo reels banayein apne portfolio ke liye",
+      "Instagram par ek page banayein 'Reel Editing Services' ke naam se",
+      "Local restaurants/salons/gyms ko DM karke free trial offer karein",
+      "Ek fixed monthly package (4 reels/month) design karein"
+    ]
+  },
+  {
+    title:"Online Excel/Google Sheets Automation Service",
+    matchScore:78,
+    description:"Small businesses ke liye custom Excel dashboards aur automated sheets banakar time-saving solutions dein.",
+    incomeRange:"₹20,000 - ₹60,000/month",
+    startupCost:"₹0",
+    timeToLaunch:"1-2 weeks",
+    difficulty:"Medium",
+    steps:[
+      "3 template dashboards banayein (expense tracker, invoice, inventory)",
+      "Local CA firms aur shop owners se seedha contact karein",
+      "Ek simple demo video banakar WhatsApp par share karein",
+      "Per-project pricing ₹1,500-₹5,000 set karein"
+    ]
+  },
+  {
+    title:"WhatsApp-based Homemade Food Business",
+    matchScore:74,
+    description:"Ghar se healthy tiffin ya snacks banakar WhatsApp groups aur local delivery se bechein.",
+    incomeRange:"₹12,000 - ₹40,000/month",
+    startupCost:"₹3,000 - ₹8,000",
+    timeToLaunch:"1 week",
+    difficulty:"Medium",
+    steps:[
+      "Apne area mein 2-3 signature items decide karein",
+      "WhatsApp Business account banakar menu card design karein",
+      "Society/office WhatsApp groups mein soft-launch karein",
+      "FSSAI basic registration karwayein for credibility"
+    ]
+  },
+  {
+    title:"Print-on-Demand Merch Store",
+    matchScore:69,
+    description:"Apni design skills se t-shirts, mugs jaise products bina inventory rakhe online bechein.",
+    incomeRange:"₹8,000 - ₹30,000/month",
+    startupCost:"₹0 - ₹2,000",
+    timeToLaunch:"2 weeks",
+    difficulty:"Medium",
+    steps:[
+      "Printful/Qikink jaise print-on-demand partner se connect karein",
+      "Canva se 10-15 trending designs banayein",
+      "Instagram/Etsy store setup karein",
+      "Micro-influencers se barter promotion karwayein"
+    ]
+  }
+];
+
+/* ---------- Paywall Modal ---------- */
+function openPaywall(){
+  document.getElementById("paywallModal").classList.add("show");
+}
+document.getElementById("closePaywall").addEventListener("click", ()=>{
+  document.getElementById("paywallModal").classList.remove("show");
+});
+document.getElementById("paywallModal").addEventListener("click", (e)=>{
+  if(e.target.id === "paywallModal") e.target.classList.remove("show");
+});
+
+/* ---------- Razorpay flow ---------- */
+document.getElementById("payBtn").addEventListener("click", async ()=>{
+  const btn = document.getElementById("payBtn");
+  btn.classList.add("loading");
+  btn.disabled = true;
+
+  try{
+    if(DEMO_MODE){
+      await new Promise(r=>setTimeout(r, 1200));
+      unlockSuccess();
+      return;
+    }
+
+    // 1. create-order
+    const orderRes = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/create-order`, {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization":`Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+      },
+      body: JSON.stringify({
+        amount: CONFIG.UNLOCK_PRICE_PAISE,
+        tool_id: CONFIG.TOOL_ID,
+        device_id: DEVICE_ID
+      })
+    });
+    const order = await orderRes.json();
+
+    // 2. open Razorpay checkout
+    const rzp = new Razorpay({
+      key: CONFIG.RAZORPAY_KEY_ID,
+      amount: CONFIG.UNLOCK_PRICE_PAISE,
+      currency: "INR",
+      name: "IncomeAIHub",
+      description: "AI Online Business Finder — Lifetime Unlock",
+      order_id: order.id,
+      handler: async function(response){
+        // 3. verify-payment
+        try{
+          const verifyRes = await fetch(`${CONFIG.SUPABASE_URL}/functions/v1/verify-payment`, {
+            method:"POST",
+            headers:{
+              "Content-Type":"application/json",
+              "Authorization":`Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+            },
+            body: JSON.stringify({
+              razorpay_order_id: response.razorpay_order_id,
+              razorpay_payment_id: response.razorpay_payment_id,
+              razorpay_signature: response.razorpay_signature,
+              tool_id: CONFIG.TOOL_ID,
+              device_id: DEVICE_ID
+            })
+          });
+          const verify = await verifyRes.json();
+          if(verify.success){
+            unlockSuccess();
+          }else{
+            showToast("Payment verify nahi ho paya, support se contact karein", "error");
+          }
+        }catch(e){
+          showToast("Verification error, agar amount cut hua hai to support contact karein", "error");
+        }finally{
+          btn.classList.remove("loading");
+          btn.disabled = false;
+        }
+      },
+      modal:{
+        ondismiss: function(){
+          btn.classList.remove("loading");
+          btn.disabled = false;
+        }
+      },
+      theme:{ color:"#d4af6a" }
+    });
+    rzp.open();
+
+  }catch(err){
+    console.error(err);
+    showToast("Payment start nahi ho paya, dobara try karein", "error");
+    btn.classList.remove("loading");
+    btn.disabled = false;
+  }
+});
+
+function unlockSuccess(){
+  isUnlocked = true;
+  localStorage.setItem(CONFIG.TOOL_ID + "_unlocked", "true");
+  refreshUnlockUI();
+  document.getElementById("paywallModal").classList.remove("show");
+  document.getElementById("payBtn").classList.remove("loading");
+  document.getElementById("payBtn").disabled = false;
+  showToast("🎉 Unlocked! Ab aap unlimited ideas dekh sakte hain", "success");
+  if(lastIdeas.length) renderResults(lastIdeas);
+}
+
+/* ---------- Hindi Guide Modal ---------- */
+document.getElementById("guideBtn").addEventListener("click", ()=>{
+  document.getElementById("guideModal").classList.add("show");
+});
+document.getElementById("closeGuide").addEventListener("click", ()=>{
+  document.getElementById("guideModal").classList.remove("show");
+});
+document.getElementById("guideModal").addEventListener("click", (e)=>{
+  if(e.target.id === "guideModal") e.target.classList.remove("show");
+});
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function showToast(msg, type=""){
+  const toast = document.getElementById("toast");
+  toast.textContent = msg;
+  toast.className = "toast show" + (type ? " " + type : "");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>{ toast.classList.remove("show"); }, 3200);
+}
+</script>
+</body>
+</html>
